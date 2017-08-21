@@ -9,23 +9,24 @@
     <link rel="alternate" hreflang="pt" href="http://www.my-docbox.com/" />
     <link rel="alternate" hreflang="en" href="http://www.my-docbox.com/en" />
 
-    <!-- Fonte do Logo
-    Está comentado porque o logo passou a ser inserido como um icon
+    <!--
+    Fonte do Logo
+    - Está comentado porque o logo passou a ser inserido como um icon
     no entanto fica aqui a referência á fonte que pode ser utilizada de futuro.
     <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
     -->
 
     <!--
     Font do texto
-    Esta é a fonte que é utilizada para o texto em geral no website.
+    - Esta é a fonte que é utilizada para o texto em geral no website.
     -->
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Muli:200,200i,300,300i,400,400i,600,700,800" rel="stylesheet">
 
     <!--
     Colecção de icons da myDocBox
-    - Foi criada uma colecção de icons para a myDocBox para substituir os icons em imagem png.
+    - Foi criada uma colecção de icons myDocBox para substituir os icons em imagem png.
     - Na colecção está incluído o logo da myDocBox.
+    - Foi utilizada a app do IcoMoon https://icomoon.io/app
     -->
     <link rel="stylesheet" href="templates/commons/css/icomoon/style.min.css" type="text/css">
 
@@ -53,11 +54,14 @@ embora não esteja a ser utilizado, no futuro o ID vai permitir criar regras esp
     <div id="mdb-container" class="mdb-clearfix">
 
       <!-- Cabeçalho -->
-      <header class="mdb-clearfix"><!-- foi inserido aqui um clearfix porque a nav tem um float right-->
-          <nav class="mdb-clearfix"><!-- esta é a navegação principal: é única-->
+      <header class="mdb-clearfix">
+          <nav class="mdb-clearfix">
               <span id="mdb-burger--icon" class="icon-mdb-burguer"></span>
               <span class="mdb-visuallyhidden mdb-focusable">Menu</span>
-              <ul class="mdb-clearfix"><!-- foi inserido aqui um clearfix porque os li tem um float left -->
+              <!--
+              
+              -->
+              <ul class="mdb-clearfix">
                   <li id="mdb-mobile-close" class="mdb-mobile--hidden"><i class="icon-mdb-cross"></i></li>
                   <li><a href="#" class="mdb-active">Home</a></li>
                   <li>
@@ -78,22 +82,27 @@ embora não esteja a ser utilizado, no futuro o ID vai permitir criar regras esp
       </header>
 
 
-      <!-- Conteúdo principal -->
+      <!-- Zona princial de conteúdos -->
       <main class="mdb-clearfix">
+          <!-- Secção com o logotipo e formulário de registo -->
           <section class="mdb-main__banner">
+              <!-- Logo -->
               <h1>
                 <i class="icon-mdb-mydocbox mdb-logo mdb-logo--extra-large"></i>
                 <span class="mdb-visuallyhidden">my Docbox</span>
               </h1>
               <h2>Digitalize e organize os seus documentos</h2>
+              <!-- Formulário de registo -->
               <form>
                   <input class="mdb-input" type="email" name="email" placeholder="Email" autofocus required>
                   <input class="mdb-input" type="password" name="password" placeholder="Password" required>
                   <button class="mdb-button mdb--dark" type="submit" value="Submit">Registar</button>
               </form>
           </section>
+          <!-- Funcionalidades -->
           <section class="mdb-main__content">
               <ul id="mdb-func" class="mdb-cle">
+                  <!-- Fácil -->
                   <li>
                       <article>
                         <span class="mdb-ball">
@@ -103,6 +112,7 @@ embora não esteja a ser utilizado, no futuro o ID vai permitir criar regras esp
                         <p>Digitalize os seus documentos com o dipositivo à sua escolha ou envie para o email da sua docbox, a plataforma converte os documentos em formato de texto e organiza automaticamente conforme as suas configurações.</p>
                       </article>
                   </li>
+                  <!-- Fléxivel-->
                   <li>
                       <article>
                         <span class="mdb-ball">
@@ -113,6 +123,7 @@ embora não esteja a ser utilizado, no futuro o ID vai permitir criar regras esp
                         <p>Partilhe os seus documentos com a sua familia ou equipa.</p>
                       </article>
                   </li>
+                  <!-- Alertas -->
                   <li>
                       <article>
                         <span class="mdb-ball">
@@ -129,11 +140,13 @@ embora não esteja a ser utilizado, no futuro o ID vai permitir criar regras esp
       <!-- Rodapé -->
       <footer class="mdb--dark">
           <ul class="mdb-clearfix">
+            <!-- Logo -->
             <li>
               <h2>
                 <i class="icon-mdb-mydocbox mdb-logo mdb-logo--small"></i>
               </h2>
             </li>
+            <!-- Lista de links -->
             <li>
               <nav>
                   <ul class="mdb-links">
@@ -146,14 +159,17 @@ embora não esteja a ser utilizado, no futuro o ID vai permitir criar regras esp
                   </ul>
               </nav>
             </li>
+            <!-- Formulário de subscrição da newsletter e redes sociais -->
             <li>
               <section class="mdb-newsletter-subscription">
+                <!-- Subscrição da newsletter -->
                 <h4>Newsletter</h4>
                 <p>Receba novidades de novos serviçoes e funcionalidades</p>
                 <form action="#">
                     <input class="mdb-input" type="email" name="email" placeholder="Email" required>
                     <button class="mdb-button mdb--blue" class="left" type="submit" value="Submit">Subscrever</button>
                 </form>
+                <!-- Redes sociais -->
                 <ul class="mdb-social mdb-clearfix">
                     <li><a href="#"><i class="icon-mdb-facebook"><span class="mdb-visuallyhidden mdb-focusable">Facebook</span></i></a></li>
                     <li><a href="#"><i class="icon-mdb-twitter"></i><span class="mdb-visuallyhidden mdb-focusable">Twitter</span></a></li>
@@ -166,8 +182,12 @@ embora não esteja a ser utilizado, no futuro o ID vai permitir criar regras esp
 
     </div>
 
+    <!-- Biblioteca jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- Biblioteca jQuery para mobile -->
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+    <!-- Ficheiro com o javascript do site-->
     <script src="templates/mdb/js/main.min.js" async></script>
+
     </body>
 </html>

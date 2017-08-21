@@ -1,4 +1,7 @@
-
+/*******************************************
+Javascript
+-
+*******************************************/
 
 /*
 Mobile Menu
@@ -44,7 +47,7 @@ Cria o menu
 function create_mobile_menu(id){
   $mobile_menu_id = '#'+id;
   if(!$('#'+id).length){
-    $('body').append('<ul id="'+id+'" class="'+$mobile_menu_classes+'">'+$('header nav ul').html()+'</ul>');
+    $('body').append('<nav><ul id="'+id+'" class="'+$mobile_menu_classes+'">'+$('header nav ul').html()+'</ul></nav>');
     set_mobile_menu_initial_position();
     show_hide_mobile_menu_close_button();
     bind_events_mobile_menu();
