@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>myDocBox - Digitalize e Organize os seus Documentos</title>
+
+    <!-- Tags que identificam as urls dos diferentes idiomas utilizados no website -->
+    <link rel="alternate" hreflang="pt" href="http://www.my-docbox.com/" />
+    <link rel="alternate" hreflang="en" href="http://www.my-docbox.com/en" />
+
+    <!-- Fonte do Logo
+    Está comentado porque o logo passou a ser inserido como um icon
+    no entanto fica aqui a referência á fonte que pode ser utilizada de futuro.
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
+    -->
+
+    <!--
+    Font do texto
+    Esta é a fonte que é utilizada para o texto em geral no website.
+    -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:200,200i,300,300i,400,400i,600,700,800" rel="stylesheet">
+
+    <!--
+    Colecção de icons da myDocBox
+    - Foi criada uma colecção de icons para a myDocBox para substituir os icons em imagem png.
+    - Na colecção está incluído o logo da myDocBox.
+    -->
+    <link rel="stylesheet" href="templates/commons/css/icomoon/style.min.css" type="text/css">
+
+    <!--
+    Css do template
+    - Foi criada uma estrutura de pasta para permitir a utilização de vários templates
+    - As regras da Css, criadas para myDocBox, têm o prefixo "mdb-" para que sejam facilmente identificadas e se
+    destinguirem de outras bibliotecas que possam ser usadas de futuro.
+    -->
+    <link rel="stylesheet" href="templates/mdb/css/template.min.css" type="text/css">
+
+    <!-- The HTML5 Shiv enables use of HTML5 sectioning elements in legacy Internet Explorer and provides basic HTML5 styling for Internet Explorer 6-9, Safari 4.x (and iPhone 3.x), and Firefox 3.x. -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<!--
+ID homepage
+embora não esteja a ser utilizado, no futuro o ID vai permitir criar regras especificas para a formatação da homepage
+-->
+<body id="homepage" class="desktop">
+
+    <!-- Container princial de cada página: vai ser unico em cada página -->
+    <div id="mdb-container" class="mdb-clearfix">
+
+      <!-- Cabeçalho -->
+      <header class="mdb-clearfix"><!-- foi inserido aqui um clearfix porque a nav tem um float right-->
+          <nav class="mdb-clearfix"><!-- esta é a navegação principal: é única-->
+              <span id="mdb-burger--icon" class="icon-mdb-burguer"></span>
+              <span class="mdb-visuallyhidden mdb-focusable">Menu</span>
+              <ul class="mdb-clearfix"><!-- foi inserido aqui um clearfix porque os li tem um float left -->
+                  <li id="mdb-mobile-close" class="mdb-mobile--hidden"><i class="icon-mdb-cross"></i></li>
+                  <li><a href="#" class="mdb-active">Home</a></li>
+                  <li>
+                    <a href="#">
+                      <i class="icon-mdb-mydocbox mdb-logo mdb-logo--extra-small"></i>
+                    </a>
+                  </li>
+                  <li><a href="#">Ajuda</a></li>
+                  <li id="mdb-nav-search">
+                    <button class="mdb-button mdb-button-reset">
+                        <i class="icon-mdb-search"></i>
+                    </button>
+                  </li>
+                  <li id="mdb-nav-register"><a href="#" class="mdb-button mdb--dark mdb-button__register">Registe-se</a></li>
+                  <li id="mdb-nav-login"><a href="#">Entrar</a></li>
+              </ul>
+          </nav>
+      </header>
+
+
+      <!-- Conteúdo principal -->
+      <main class="mdb-clearfix">
+          <section class="mdb-main__banner">
+              <h1>
+                <i class="icon-mdb-mydocbox mdb-logo mdb-logo--extra-large"></i>
+                <span class="mdb-visuallyhidden">my Docbox</span>
+              </h1>
+              <h2>Digitalize e organize os seus documentos</h2>
+              <form>
+                  <input class="mdb-input" type="email" name="email" placeholder="Email" autofocus required>
+                  <input class="mdb-input" type="password" name="password" placeholder="Password" required>
+                  <button class="mdb-button mdb--dark" type="submit" value="Submit">Registar</button>
+              </form>
+          </section>
+          <section class="mdb-main__content">
+              <ul id="mdb-func" class="mdb-cle">
+                  <li>
+                      <article>
+                        <span class="mdb-ball">
+                          <i class="icon-mdb-easy"></i>
+                        </span>
+                        <h3>Fácil</h3>
+                        <p>Digitalize os seus documentos com o dipositivo à sua escolha ou envie para o email da sua docbox, a plataforma converte os documentos em formato de texto e organiza automaticamente conforme as suas configurações.</p>
+                      </article>
+                  </li>
+                  <li>
+                      <article>
+                        <span class="mdb-ball">
+                          <i class="icon-mdb-flexible"></i>
+                        </span>
+                        <h3>Fléxivel</h3>
+                        <p>Personalize a classificação e a organização dos seus documentos na sua docbox.</p>
+                        <p>Partilhe os seus documentos com a sua familia ou equipa.</p>
+                      </article>
+                  </li>
+                  <li>
+                      <article>
+                        <span class="mdb-ball">
+                          <i class="icon-mdb-alerts"></i>
+                        </span>
+                        <h3>Alertas</h3>
+                        <p>Criei regras para alertas e lembretes. A docbox pode identificar documentos com prazos de pagamentos automaticamente e enviar-lhe um alerta para que não perca nenhum prazo.</p>
+                      </article>
+                  </li>
+              </ul>
+          </section>
+      </main>
+
+      <!-- Rodapé -->
+      <footer class="mdb--dark">
+          <ul class="mdb-clearfix">
+            <li>
+              <h2>
+                <i class="icon-mdb-mydocbox mdb-logo mdb-logo--small"></i>
+              </h2>
+            </li>
+            <li>
+              <nav>
+                  <ul class="mdb-links">
+                      <li><a href="#" class="mdb-active">Home</a></li>
+                      <li><a href="#">Ajuda</a></li>
+                      <li><a href="#">Contacte-nos</a></li>
+                      <li><a href="#">Sobre nós</a></li>
+                      <li><a href="#">Termos e condições</a></li>
+                      <li><a href="#">Política de privacidade</a></li>
+                  </ul>
+              </nav>
+            </li>
+            <li>
+              <section class="mdb-newsletter-subscription">
+                <h4>Newsletter</h4>
+                <p>Receba novidades de novos serviçoes e funcionalidades</p>
+                <form action="#">
+                    <input class="mdb-input" type="email" name="email" placeholder="Email" required>
+                    <button class="mdb-button mdb--blue" class="left" type="submit" value="Submit">Subscrever</button>
+                </form>
+                <ul class="mdb-social mdb-clearfix">
+                    <li><a href="#"><i class="icon-mdb-facebook"><span class="mdb-visuallyhidden mdb-focusable">Facebook</span></i></a></li>
+                    <li><a href="#"><i class="icon-mdb-twitter"></i><span class="mdb-visuallyhidden mdb-focusable">Twitter</span></a></li>
+                    <li><a href="#"><i class="icon-mdb-youtube"></i><span class="mdb-visuallyhidden mdb-focusable">youtube</span></a></li>
+                </ul>
+              </section>
+            </li>
+          </ul>
+      </footer>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+    <script src="templates/mdb/js/main.min.js" async></script>
+    </body>
+</html>

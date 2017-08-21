@@ -1,0 +1,850 @@
+/*******************************************
+Scripts sass
+- Inclusão de scripts sass
+*******************************************/
+/*
+_unitconversion.scss (v.2.1.13)
+Source: https://github.com/jakob-e/unitconversion
+- Para permitir de uma forma mais fácil fazer a conversão das unidades de px para outras unidades.
+*/
+@import "sass/unitconversion/_unitconversion";
+
+
+/*******************************************
+Main values
+- Definição de variáveis sass para utilização ao longo do script
+*******************************************/
+// Fonts
+$main_text_font_family: 'Muli', Helvetica, Arial, sans-serif;
+$main_font_size: 16px; // valor em pixels do tamanho base da fonte do website
+// Site
+$main_site_width: 100%; // largura do website
+$main_section_fixed_width: 1224px; // valor em pixels
+// Gutters
+$main_gutter: 15px; // Valor em pixels do espaçamento
+// Colors
+$main_color_blue: #4cabc1; // cor azul principal
+$main_color_blue_rgba: rgba(76,171,193,1); // cor azul principal em rgba
+$main_color_green: #7ac2bf; // cor verder principal
+$main_light_color: #ffffff; // cor mais clara do website
+$main_color_disable: #cccccc; // cor do texto dos elementos desabilitados
+$main_dark_color: #333333; // cor mais escura do website
+// Colors: forms
+$input_placeholder_color: $main_color_disable; // cor dos placholders nos campos de input
+// Colors: Links
+$a_color: $main_color_blue; // cor princial dos links
+$a_color_hover: $main_dark_color; // cor on mouse hover dos links
+// Mobile menu
+$mobile_menu_width: 300px;
+$mobile_menu_width_value: 300;
+
+
+/*******************************************
+Cross Browser Normalize by necolas at https://necolas.github.io/normalize.css/
+- Apenas normaliza a visualição nos vários browsers.
+- Foi incluído aqui para dimuir as chamadas ao servidor
+*******************************************/
+@import "normalize";
+
+/*
+normalize override
+*/
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: $main_text_font_family;
+}
+
+
+
+/*******************************************
+Browser Defaults Reset by meyerweb at http://meyerweb.com/eric/tools/css/reset/
+- Não está a ser utilizado
+*******************************************/
+//@import "reset";
+
+
+
+/*******************************************
+Mixins
+*******************************************/
+// para dar a largura fixa às secções
+@mixin mdb-section-fixed-width {
+  max-width: $main_section_fixed_width;
+  margin: 0 auto;
+}
+// Para limpar os bullets, paddings e margins the uma lista
+@mixin mdb-list-reset {
+  list-style: none;
+  list-style-type: none;
+  padding: rem(0px);
+  margin: rem(0px);
+}
+// Para dar cantos arredondados a um elemento
+@mixin mdb-round-corners($radius){
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+// Alinha verticalmente, valor por omissão é 50%
+@mixin mb-vertical-align ($ratio:'50%'){
+  position: relative;
+  top: $ratio;
+  -webkit-transform: translateY(-$ratio);
+  -ms-transform: translateY(-$ratio);
+  transform: translateY(-$ratio);
+}
+
+@mixin mb-remove-box-shadow{
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+
+
+/*******************************************
+Hidden extends
+*******************************************/
+%mdb-section-fixed-width{
+  @include mdb-section-fixed-width;
+}
+%mdb-list-reset{
+  @include mdb-list-reset;
+}
+
+
+
+/********************************************
+Generic
+*******************************************/
+html,body{
+}
+html{
+  font-size: px($main_font_size);
+}
+body{
+  font-family: $main_text_font_family;
+  font-weight: 300;
+  color: #000000;
+}
+// Links
+a{
+  text-decoration: none;
+  color: #000000;
+}
+a:hover{
+  color: $a_color_hover;
+}
+// Listas
+ul{
+  @extend %mdb-list-reset;
+}
+
+
+
+/*******************************************
+Base Template colors variations
+*******************************************/
+.mdb--dark{
+  background-color: $main_dark_color;
+  color: $main_light_color;
+}
+.mdb--blue{
+  background-color: $main_color_blue;
+  color: $main_light_color;
+}
+
+
+footer.mdb--dark a{
+  text-decoration: none;
+  color: $main_light_color;
+}
+footer.mdb--dark a:hover{
+  color: $main_color_blue;
+}
+
+
+
+
+
+/*******************************************
+Hide from screen readers
+Source: https://codecook.io/css/167/visually-hidden
+Hide content only visually, but have it available for screen readers.
+*******************************************/
+/*
+Esconde elementos visualmente para permitir acessibilidade por Jonathan Snook
+*/
+.mdb-visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: rem(0);
+    position: absolute;
+    width: rem(1px);
+}
+
+/*
+Extende a classe .visually-hidden  para permitir navegação através do teclado
+*/
+.mdb-visuallyhidden.mdb-focusable:active,
+.mdb-visuallyhidden.mdb-focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+
+/*******************************************
+Clearfix
+- Por causa dos floats
+*******************************************/
+.mdb-clearfix:after {
+  visibility: hidden;
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+}
+* html .mdb-clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .mdb-clearfix { zoom: 1; } /* IE7 */
+
+
+/*******************************************
+Gerais
+*******************************************/
+// Logotipo
+.mdb-logo{
+  display: inline-block;
+}
+
+// Logotipo extra grange
+.mdb-logo.mdb-logo--extra-large{
+  font-size: 15vw;
+  margin-bottom: 5vw;
+}
+
+// Elemento redondo
+.mdb-ball{
+  @include mdb-round-corners(50%);
+  display: inline-block;
+  background-color: $main_color_blue;
+  width: rem(155px);
+  height: rem(155px);
+  text-align: center;
+}
+.mdb-ball i{
+  @include mb-vertical-align(50%);
+  width: auto;
+  height: auto;
+  display: inline-block;
+  line-height: 100%;
+  font-size: em(5rem);
+  color: $main_light_color;
+}
+
+// Campos de input dos formulários
+.mdb-input-reset{
+  border: none;
+  border: 1px solid transparent;
+  background-color: $main_light_color;
+}
+.mdb-input{
+  @extend .mdb-input-reset;
+  @include mdb-round-corners(rem(5px));
+  border: rem(1px) solid transparent;
+  padding: rem($main_gutter);
+}
+.mdb-input:focus {
+    outline: none;
+    border-color: $main_light_color;
+    box-shadow: 0 0 rem(7px) $main_light_color;
+}
+
+.mdb-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $input_placeholder_color !important;
+}
+.mdb-input::-moz-placeholder { /* Firefox 19+ */
+  color: $input_placeholder_color !important;
+}
+.mdb-input:-ms-input-placeholder { /* IE 10+ */
+  color: $input_placeholder_color !important;
+}
+.mdb-input:-moz-placeholder { /* Firefox 18- */
+  color: $input_placeholder_color !important;
+}
+
+// Botões
+.mdb-button-reset{
+  border: none;
+  color: #000000;
+  text-decoration: none;
+  background-color: $main_light_color;
+  outline: unset;
+}
+.mdb-button{
+  @extend .mdb-button-reset;
+  border: rem(1px) solid transparent;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  padding: rem(15px);
+  cursor: default;
+  @include mdb-round-corners(rem(5px));
+}
+.mdb-button.mdb--dark{
+  @extend .mdb--dark;
+}
+.mdb-button.mdb--dark:hover{
+  color: $main_color_blue;
+}
+.mdb-button.mdb--blue{
+  @extend .mdb--blue;
+}
+.mdb-button.mdb--blue:hover{
+  color: $main_dark_color;
+}
+
+// Remove a sombra quando se clica no butao
+.mdb-button:active,
+.mdb-button-reset:active{
+  @include mb-remove-box-shadow;
+}
+
+
+
+/*******************************
+Mobile menu
+*******************************/
+.mdb-mobile--hidden{
+  display:none;
+}
+#mobile-menu{
+  position: fixed;
+  top:0px;
+  left: -$mobile_menu_width;
+  height:100%;
+  min-width:$mobile_menu_width;
+  padding-top: rem($main_gutter);
+
+  > li{
+    width: rem($mobile_menu_width - $main_gutter * 4);
+    padding-top: rem($main_gutter);
+    padding-left: rem($main_gutter * 2);
+    padding-bottom: rem($main_gutter);
+    padding-right: rem($main_gutter * 2);
+    a{
+      font-size: rem($main_font_size * 1.2);
+    }
+  }
+  #mdb-mobile-close{
+    cursor: pointer;
+  }
+  #mdb-nav-search{
+    display: none;
+  }
+  #mdb-nav-register{
+    padding: rem($main_gutter) rem($main_gutter) rem($main_gutter) rem($main_gutter * 2);
+    a.mdb-button{
+      width: rem($mobile_menu_width - $main_gutter * 6);
+    }
+  }
+}
+
+#mobile-menu.mdb--dark{
+  a{
+    color: $main_light_color
+  }
+  a:hover{
+    color: $main_color_blue;
+  }
+  a.mdb-active{
+    color: $main_color_blue
+  }
+  #mdb-mobile-close{
+    color: #ccc;
+  }
+  #mdb-nav-register{
+    a.mdb-button{
+      background-color: $main_color_blue;
+    }
+  }
+}
+
+#mobile-menu.mdb--blue{
+  a{
+    color: $main_light_color
+  }
+  a:hover{
+    color: $main_dark_color;
+  }
+  a.mdb-active{
+    color: $main_dark_color
+  }
+  .mdb-mobile-close{
+    color: $main_light_color;
+  }
+}
+
+
+
+
+/********************************
+* Content
+********************************/
+
+//Content
+#mdb-container,
+.mdb-container{
+  position: relative;
+  width: $main_site_width;
+}
+
+
+
+//header
+header{
+  @extend %mdb-section-fixed-width;
+  clear:both;
+  padding: rem($main_gutter) rem(0);
+  nav,button{
+    display: inline-block;
+  }
+  // general
+  nav{
+    float: right;
+    #mdb-burger--icon{
+      font-size: em(18px);
+      color: $main_dark_color;
+      display:none;
+      cursor: pointer;
+      max-width: em(25px);
+    }
+    ul{
+      margin-top: 0px;
+      margin-bottom: 0px;
+      > li{
+        float: left;
+        a{
+          color: $main_color_blue;
+          display: inline-block;
+          padding: rem($main_gutter) rem($main_gutter);
+        }
+      }
+    }
+  }
+  #mdb-nav-search{
+    button{
+      float: left;
+      margin: rem(0) rem($main_gutter) rem(0) rem(0);
+      color: $a_color;
+    }
+  }
+  a.mdb-button__register{
+  }
+  #mdb-nav-register{
+    a{
+      margin-right: $main_gutter;
+    }
+  }
+}
+
+
+// Main
+main{
+  clear: both;
+  position: relative;
+  max-width: 100%;
+  margin-bottom: rem($main_gutter * 5);
+  .mdb-main__banner{
+    position: relative;
+    max-width: 100%;
+    text-align: center;
+    background: $main_color_blue url(../images/backgrounds/banner_background.png) center center no-repeat;
+    background-size: 100% 100%;
+    padding: rem($main_gutter * 5) rem(0) rem($main_gutter * 5) rem(0);
+    margin-bottom: rem($main_gutter * 5);
+    h1{
+      margin: 0;
+      display: inline-block;
+      color: $main_light_color;
+      text-align: center;
+      margin: 0 0 rem($main_gutter * 0.5) 0;
+    }
+    h2{
+      font-weight: 300;
+      font-size: 3vw;
+      color: $main_light_color;
+      margin: 0 0 rem($main_gutter * 9) 0;
+    }
+    form{
+      input{
+        margin-right: rem($main_gutter * 0.5);
+      }
+      button{
+        padding-top: rem($main_gutter);
+        padding-bottom: rem($main_gutter);
+        left:0px;
+      }
+    }
+  }
+  .mdb-main__content{
+    @extend %mdb-section-fixed-width;
+    #mdb-func{
+      li{
+        width:33%;
+        float:left;
+        text-align: center;
+        article{
+          padding-left:10%;
+          padding-right:10%;
+          text-align: center;
+          h3{
+            font-size: em(2em);
+            font-weight: 300;
+          }
+          p{
+            line-height: 160%;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// Footer
+footer{
+  padding: rem($main_gutter * 3) rem(0);
+  text-align: center;
+  h2,nav,section,h4,ul,li,a,p{
+    color: $main_light_color;
+  }
+  > ul{
+    @extend %mdb-section-fixed-width;
+    padding: rem(0) rem($main_gutter * 3);
+    > li{
+      text-align: left;
+      float: left;
+    }
+    > li:first-child{
+      width: 20%;
+      > h2{
+        margin-top:0px;
+      }
+    }
+    > li:nth-child(2){
+      width: 30%;
+    }
+    > li:last-child{
+      width: 50%;
+    }
+  }
+
+  nav{
+    ul {
+        padding:rem(0px);
+        -moz-column-count: 2;
+        -moz-column-gap: rem(20px);
+        -webkit-column-count: 2;
+        -webkit-column-gap:rem(20px);
+        column-count: 2;
+        column-gap: rem(20px);
+    }
+    ul > li:nth-child(1){
+      margin-top: rem(0px);
+    }
+    ul > li > a{
+      line-height: em(2em);
+      font-size: em(14px);
+    }
+  }
+  .mdb-newsletter-subscription{
+    display: inline-block;
+    float: right;
+    h4{
+      margin-top: rem(0px);
+    }
+    p{
+      margin-bottom: rem($main_gutter);
+    }
+    form{
+      margin-bottom: rem($main_gutter);
+      input{
+        width: 61%;
+        margin-right: rem($main_gutter * 0.5);
+      }
+      button{
+        width: auto;
+      }
+    }
+  }
+  .mdb-social{
+    > li{
+      float: left;
+      font-weight: bold;
+      font-size: em(22px);
+      a{
+        display: inline-block;
+        padding: rem($main_gutter * 0.5);
+      }
+    }
+  }
+
+}
+
+
+
+// Large Devices, Wide Screens
+@media only screen and (max-width : 1200px) {
+
+}
+
+// Medium Devices, Desktops
+@media only screen and (max-width : 992px) {
+  main{
+    .mdb-main__banner{
+      background: $main_color_blue url(../images/backgrounds/banner_background_992.png) center center no-repeat;
+      h2{
+        font-size: 3.5vw;
+      }
+    }
+  }
+}
+
+// Small Devices, Tablets
+@media only screen and (max-width : 768px) {
+  main{
+    .mdb-main__banner{
+      background: $main_color_blue url(../images/backgrounds/banner_background_768.png) center center no-repeat;
+      h2{
+        font-size: 3.5vw;
+        margin: 0 0 rem($main_gutter * 7) 0;
+      }
+    }
+    .mdb-main__content{
+      #mdb-func{
+        li{
+          float: none;
+          width:100%;
+          article{
+            margin: rem($main_gutter * 2);
+            :first-child{
+              margin: 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  footer{
+    > ul{
+      > li:first-child{
+        width: 40%;
+      }
+      > li:nth-child(2){
+        width: 60%;
+      }
+      > li:last-child{
+        display: block;
+        width: 100%;
+        text-align: center;
+        .mdb-newsletter-subscription{
+          margin-top: rem($main_gutter * 4);
+          text-align: left;
+          float: none;
+          display: inline-block;
+          form{
+            input{
+              width: 61%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+
+
+@media only screen and (max-width : 555px) {
+  main{
+    .mdb-main__banner{
+      h2{
+        margin: 0 0 rem($main_gutter * 5) 0;
+      }
+      form{
+        display: inline-block;
+        text-align: center;
+        width:50%;
+        input{
+          margin:auto;
+          display: inline-block;
+          clear: both;
+          margin: 0px;
+          margin-bottom: $main_gutter;
+        }
+      }
+    }
+  }
+}
+
+
+/*
+Navegação principal
+*/
+@media only screen and (max-width : 525px) {
+  header{
+    float: none;
+    width: 100%;
+    nav,button{
+    }
+    // general
+    nav{
+      position: relative;
+      float: none;
+      width: 100%;
+      #mdb-burger--icon{
+        color: #000;
+        display:block;
+        padding-left: rem(15px);
+
+        ////////////
+        padding-right: rem(15px);
+        display:inline-block;
+        position: absolute;
+        top: -12px;
+        left: 0px;
+        ////////////
+      }
+      ul{
+        display: none; // hides the top nav
+        width: 100%;
+        > li{
+          float: none;
+          width: 100%;
+          a{
+            color: $main_color_blue;
+            display: block;
+          }
+        }
+      }
+    }
+    /*
+    nav:active > ul,
+    nav:hover > ul{
+      display: block;
+    }
+    */
+    #mdb-nav-search{
+      button{
+        float: none;
+        width:100%;
+        margin: 0;
+        text-align: left;
+        padding: rem($main_gutter) rem($main_gutter);
+      }
+    }
+    a.mdb-button__register{
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+  }
+
+}
+
+// Extra Small Devices, Phones
+@media only screen and (max-width : 480px) {
+
+  main{
+    .mdb-main__banner{
+      background: $main_color_blue url(../images/backgrounds/banner_background_480.png) center center no-repeat;
+      h2{
+        font-size: 3.5vw !important;
+      }
+      form{
+        width:60%;
+      }
+    }
+  }
+
+  footer{
+    > ul{
+      > li{
+      float: none;
+      width: 100%;
+      }
+      > li:last-child{
+        .mdb-newsletter-subscription{
+          form{
+            input{
+              margin-bottom: rem($main_gutter);
+              width: 90.5%;
+            }
+            button{
+              width: 99%;
+            }
+          }
+        }
+      }
+    }
+    nav{
+      ul {
+          width: 100%;
+          -moz-column-count: 1;
+          -moz-column-gap: 20px;
+          -webkit-column-count: 1;
+          -webkit-column-gap: 20px;
+          column-count: 1;
+          column-gap: 20px;
+          > li{
+            width: 100%;
+          }
+      }
+    }
+  }
+}
+
+// Custom, iPhone Retina
+@media only screen and (max-width : 320px) {
+  main{
+    .mdb-main__banner{
+      background: $main_color_blue url(../images/backgrounds/banner_background_320.png) center center no-repeat;
+      h2{
+        margin: 0 0 rem($main_gutter * 5) 0;
+      }
+      form{
+        width:70%;
+      }
+    }
+  }
+
+  footer{
+    > ul{
+      > li:last-child{
+        .mdb-newsletter-subscription{
+          form{
+            input{
+              width: 85%;
+            }
+            button{
+              width: 99%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
